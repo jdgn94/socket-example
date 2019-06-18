@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat Socket.io</title>
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="chat">
+
+    <div class="chat__sidebar">
+      <h3>Personas</h3>
+      <div id="users"></div>
+    </div>
+    
+    <div class="chat__main">
+      <ol id="messages" class="chat__messages"></ol>
+
+      <div class="chat__footer">
+        <form id="message-form">
+          <input type="text" id="text-message" name="text-message" placeholder="Escribir mensaje" autofocus>
+          <button id="submit-btn">Enviar</button>
+        </form>
+        <button id="send-location">Envial Localizacion</button>
+      </div>
+    </div>
+
+    <script type="text/template" id="message-templet">
+      <li class="message">
+        <div class="message__title">
+          <h4>{{from}}</h4>
+          <span>{{createdAt}}</span>
+        </div>
+        <div class="message__body"><p>{{text}}</p></div>
+      </li>
+    </script>
+
+    
+    <script type="text/template" id="location-message-templet">
+      <li class="message">
+        <div class="message__title">
+          <h4>{{from}}</h4>
+          <span>{{createdAt}}</span>
+        </div>
+        <div class="message__body"><a href="{{url}}" target="_blank">Mi localización</a></div>
+      </li>
+    </script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/js/libs/moment.js"></script>
+    <script type="text/javascript" src="/js/libs/mustache.js"></script>
+    <script type="text/javascript" src="/js/chat.js"></script>
+  </body>
+</html>
